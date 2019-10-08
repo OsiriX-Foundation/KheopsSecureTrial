@@ -14,6 +14,11 @@ npm install
 npm start
 ```
 
+### Test project
+```
+npm test
+```
+
 # Docker
 
 ## Environment variables

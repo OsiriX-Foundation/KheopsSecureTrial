@@ -4,7 +4,7 @@
   "description": "Send a token if the institution respects the conditions and has the permission.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "python APItest.py",
     "start": "node server.js"
   },
   "repository": {
