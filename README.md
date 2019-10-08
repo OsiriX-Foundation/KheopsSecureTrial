@@ -2,6 +2,8 @@
 
 Server listen on port **8080**
 
+The server will read the yaml file at startup and keep it in memory.
+
 ## Project setup
 ```
 npm install
