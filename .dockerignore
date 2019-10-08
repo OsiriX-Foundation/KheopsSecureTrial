@@ -6,3 +6,4 @@
 **/Dockerfile
 **/.dockerignore
 **/example.yml
+**/APItest.py
