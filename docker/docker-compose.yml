@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+  kheopssecuretrial:
+    image: kheops-secure-trial:dev
+    container_name: kheopssecuretrial
+    env_file: docker-compose.env
+    restart: always
+    ports:
+      - "8080:8080"
+    secrets:
+      - institutions.yml
+secrets:
+  institutions.yml:
+    file: secrets/institutions.yml

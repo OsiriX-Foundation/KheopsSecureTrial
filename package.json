@@ -1,0 +1,19 @@
+{
+  "name": "kheopssecuretrial",
+  "version": "1.0.0",
+  "description": "Send a token if the institution respects the conditions and has the permission.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OsiriX-Foundation/KheopsSecureTrial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^3.13.1"
+  }
+}

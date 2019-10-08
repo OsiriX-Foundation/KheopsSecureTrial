@@ -1,0 +1,8 @@
+**/docker
+**/LICENSE
+**/README.md
+**/.gitignore
+**/.git
+**/Dockerfile
+**/.dockerignore
+**/example.yml

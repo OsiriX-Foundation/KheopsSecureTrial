@@ -1,3 +1,6 @@
+# Docker
+secrets/
+
 # Logs
 logs
 *.log

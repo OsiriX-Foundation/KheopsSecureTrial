@@ -1,0 +1,9 @@
+institutions:
+  paris:
+    secret: 12345
+    institution_secret: 123456
+    token: 1234567
+  geneve:
+    secret: 12345
+    institution_secret: 123456
+    token: 1234567
