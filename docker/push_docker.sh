@@ -1,4 +1,4 @@
 read -p "Tag name : " TAG
 echo $TAG
-docker build -t osirixfoundation/kheops-secure-trial:${TAG} .
+(cd .. && docker build -t kheops-secure-trial:dev .)
 docker push osirixfoundation/kheops-secure-trial:${TAG}
