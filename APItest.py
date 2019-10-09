@@ -17,9 +17,9 @@ def postStatusCode(url, excepted, data):
 
 def manageResult(res, value):
     if (res[0] == 0):
-        print("{} {} - [OK]".format(value['message'], value['excepted']))
+        print("[OK] - {} {}".format(value['message'], value['excepted']))
     else:
-        print("{} {}, received {} - [FAIL]".format(value['message'], value['excepted'], res[1]))
+        print("[FAIL] - {} {}, received {}".format(value['message'], value['excepted'], res[1]))
     return ''
 
 def test():
@@ -48,6 +48,7 @@ if __name__ == "__main__":
         { 'excepted': 400, 'message': 'Missing institution_name, excepted status code', 'data': {'secret': '12345', 'institution_secret': '123456'} },
         { 'excepted': 400, 'message': 'Missing institution_secret, excepted status code', 'data': {'secret': '12345', 'institution_name': 'geneve'} },
         { 'excepted': 400, 'message': 'Secret with a S', 'data': {'secrets': '12345', 'institution_name': 'geneve', 'institution_secret': '123456'} },
+        { 'excepted': 400, 'message': 'institution_name without _', 'data': {'secret': '12345', 'institutionname': 'geneve', 'institution_secret': '123456'} },
         { 'excepted': 401, 'message': 'Not good secret, excepted status code', 'data': {'secret': '123456', 'institution_name': 'geneve', 'institution_secret': '123456'} },
         { 'excepted': 401, 'message': 'Not good institution name, excepted status code', 'data': {'secret': '12345', 'institution_name': 'tijuana', 'institution_secret': '123456'} },
         { 'excepted': 401, 'message': 'Not good institution secret, excepted status code', 'data': {'secret': '12345', 'institution_name': 'geneve', 'institution_secret': '1234567'} },
