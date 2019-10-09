@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import requests
+import sys
 
 def getStatusCode(url, excepted):
     response = requests.get(API + url)
@@ -37,8 +38,12 @@ def test():
         nbError+=res[0]
     return nbError
 
+def main():
+    nbError=test()
+    if (nbError > 0):
+        raise Exception('{} error occur in the test'.format(nbError))
+
 if __name__ == "__main__":
-    API="http://127.0.0.1:8080"
     valueGetToTest = [
         { 'excepted': 405, 'message': 'Method Not Allowed, excepted status code' }
     ]
@@ -54,8 +59,10 @@ if __name__ == "__main__":
         { 'excepted': 401, 'message': 'Not good institution secret, excepted status code', 'data': {'secret': '12345', 'institution_name': 'geneve', 'institution_secret': '1234567'} },
         { 'excepted': 200, 'message': 'Good data given, excepted status code', 'data': {'secret': '12345', 'institution_name': 'geneve', 'institution_secret': '123456'} }
     ]
-    nbError=test()
-    print('')
-    print('================================')
-    print('{} error occur in the test'.format(nbError))
-    print('================================')
+    API = "http://127.0.0.1:8080" if (len(sys.argv) == 1) else sys.argv[1]
+    try:
+        response = requests.get(API)
+    except Exception as err:
+        raise Exception('Can\'t access to {} \n{}'.format(API, err))
+    else:
+        main()
