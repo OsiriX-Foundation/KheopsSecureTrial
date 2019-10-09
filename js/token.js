@@ -1,7 +1,7 @@
 
 
 module.exports = {
-  get: function(institutions, queries) {
+  get: function(institutions, secret, queries) {
     return new Promise((resolve, reject) => {
       try {
         const dictQueries = readQueries(queries)
@@ -10,10 +10,11 @@ module.exports = {
         }
 
         const institution = institutions[dictQueries.institution_name]
-        if (institution !== undefined && checkSecrets(institution, dictQueries)) {
-          return resolve(institution.token)
+        const index = getIndex(institution, dictQueries.institution_secret)
+        if (institution !== undefined && checkSecrets(index, secret, dictQueries)) {
+          return resolve(institution.institution_secrets[index].token)
         } else {
-          return reject({ message: 'no-access', status: 401})
+          return reject({ message: 'no-access', status: 400})
         }
       } catch (e) {
         return reject({ status: 500, error: e});
@@ -22,19 +23,28 @@ module.exports = {
   }
 }
 
-function checkSecrets(institution, queries) {
-  if (String(institution.institution_secret) === String(queries.institution_secret)
-    && String(institution.secret) === String(queries.secret)) {
+function checkSecrets(index, secret, queries) {
+  if (String(secret) === String(queries.secret) && index !== -1) {
     return true
   } else {
     return false
   }
 }
 
+function getIndex(institution, institution_secret) {
+  if (institution !== undefined && institution.institution_secrets !== undefined) {
+    return institution.institution_secrets.findIndex((value) => {
+      return String(value.secret) === String(institution_secret)
+    })
+  }
+  return -1
+}
+
 function checkQueries(queries) {
   if (queries['institution_secret'] === undefined ||
       queries['secret'] === undefined ||
-      queries['institution_name'] === undefined) {
+      queries['institution_name'] === undefined ||
+      queries['grant_type'] !== 'urn:x-kheops:params:oauth:grant-type:secutrial') {
     return false
   }
   return true
