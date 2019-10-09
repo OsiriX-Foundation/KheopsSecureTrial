@@ -1,8 +1,8 @@
 version: "3.1"
 services:
-  kheopssecuretrial:
+  kheopssecutrial:
     image: kheops-secure-trial:dev
-    container_name: kheopssecuretrial
+    container_name: kheopssecutrial
     env_file: docker-compose.env
     restart: always
     ports:

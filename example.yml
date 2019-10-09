@@ -1,9 +1,17 @@
+secret: 12345
 institutions:
   paris:
-    secret: 12345
-    institution_secret: 123456
-    token: 1234567
+    institution_secret:
+      - secret: 123456
+        token: 123456
+      - secret: 654321
+        token: 123456
   geneve:
-    secret: 12345
-    institution_secret: 123456
-    token: 1234567
+    institution_secrets:
+      - secret: 123456
+        token: 123456
+      - secret: 654321
+        token: 123456
+
+refererhosts:
+  - 'https://test.kheops.online'
