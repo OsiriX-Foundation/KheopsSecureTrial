@@ -17,6 +17,7 @@ function main() {
               , query =  url.parse(request.url).query
               , filename = path.join(process.cwd(), '/html'+uri);
 
+    console.log(`[${request.method}] - ${uri}`)
     switch (uri) {
       case '/secrettoken':
         if (request.method === 'POST') {
@@ -36,7 +37,9 @@ function main() {
         }
         break;
       default:
-        tools.readFileWeb(filename, response);
+        response.writeHead(404, {"Content-Type": "text/plain"});
+        response.write("404 Not Found\n");
+        response.end();
     }
   }).listen(parseInt(8080, 10));
   console.log("Server running error-free at startup, listen on port 8080\nCTRL + C to shutdown");
