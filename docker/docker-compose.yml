@@ -1,14 +1,18 @@
 version: "3.1"
 services:
   kheopssecuretrial:
-    image: kheops-secure-trial:dev
+    image: osirixfoundation/kheops-secure-trial:demo
     container_name: kheopssecuretrial
     env_file: docker-compose.env
     restart: always
-    ports:
-      - "8080:8080"
     secrets:
       - institutions.yml
+
 secrets:
   institutions.yml:
     file: secrets/institutions.yml
+
+networks:
+  default:
+    external:
+      name: kheops_kheops_network
