@@ -21,6 +21,7 @@ function main() {
               , filename = path.join(process.cwd(), '/html'+uri);
 
     let refererhost = request.headers.referer !== undefined ? `${url.parse(request.headers.referer).protocol}//${url.parse(request.headers.referer).host}` : ''
+    console.log(`[${request.method}] - [${uri}] - [${request.headers.referer}]`)
     if (isPresent(refererhost, refererhosts)) {
       switch (uri) {
         case '/secutrialtoken':
