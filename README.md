@@ -9,10 +9,10 @@ Steps of the server:
 * Check if refererhost is present in the array **refererhosts**.
 * **/secutrialtoken**, only **POST** method is allowed.
 * Will read the formdata parameters (application/x-www-form-urlencoded):
- * **secret**
- * **institution_secret**
- * **institution_name**
- * **grant_type**
+    * **secret**
+    * **institution_secret**
+    * **institution_name**
+    * **grant_type**
 * return **access_token** if all formdata parameters is correct.
 
 Check the example yaml below.
