@@ -1,7 +1,7 @@
 secret: 12345
 institutions:
   paris:
-    institution_secret:
+    institution_secrets:
       - secret: 123456
         token: 123456
       - secret: 654321
