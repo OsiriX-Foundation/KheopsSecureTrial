@@ -12,7 +12,7 @@ Steps of the server:
     * **secret**
     * **institution_secret**
     * **institution_name**
-    * **grant_type**
+    * **grant_type** must be urn:x-kheops:params:oauth:grant-type:secutrial
 * return **access_token** if all formdata parameters is correct.
 
 Check the example yaml below.
