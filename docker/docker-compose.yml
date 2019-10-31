@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   kheopssecutrial:
-    image: osirixfoundation/kheops-secure-trial:demo
+    image: osirixfoundation/kheops-secure-trial:ircpss
     container_name: kheopssecutrial
     env_file: docker-compose.env
     restart: always
